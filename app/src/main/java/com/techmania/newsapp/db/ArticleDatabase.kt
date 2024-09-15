@@ -10,7 +10,7 @@ import com.techmania.newsapp.models.Article
 
 @Database(
     entities = [Article::class],
-    version = 1,
+    version = 2,
 )
 
 @TypeConverters(Converters::class)
@@ -27,11 +27,13 @@ abstract class ArticleDatabase: RoomDatabase() {
             }
         }
 
-        private fun createDatabase(context: Context)=
+        private fun createDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
                 ArticleDatabase::class.java,
                 "article_db.db"
-            ).build()
+            )
+                .fallbackToDestructiveMigration() // Use this if data loss is acceptable
+                .build()
     }
 }

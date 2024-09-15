@@ -34,4 +34,5 @@
             android:name="article"
             app:argType="com.techmania.newsapp.models.Article" />
     </fragment>
+
 </navigation>
