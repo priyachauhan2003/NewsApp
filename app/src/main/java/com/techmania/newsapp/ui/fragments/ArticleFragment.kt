@@ -28,7 +28,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         binding.webView.apply {
             webViewClient = WebViewClient()
             article.url?.let {
-                loadUrl(id.toString())  //(it) is the url in video
+                loadUrl(it)  //(it) is the url in video
             }
         }
 
